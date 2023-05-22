@@ -33,3 +33,5 @@ const gallery = new SimpleLightbox('.gallery__item a', {
   captionsData: 'alt',
   captionPosition: 'top',
 });
+
+
