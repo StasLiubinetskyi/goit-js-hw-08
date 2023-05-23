@@ -27,14 +27,20 @@ const clearFormState = () => {
   messageInput.value = '';
 };
 
-form.addEventListener('input', saveFormState);
-window.addEventListener('load', loadFormState);
 form.addEventListener('submit', event => {
   event.preventDefault();
-  const formState = {
-    email: emailInput.value,
-    message: messageInput.value,
-  };
-  console.log(formState);
-  clearFormState();
+
+  const isEmailFilled = emailInput.value.trim() !== '';
+  const isMessageFilled = messageInput.value.trim() !== '';
+
+  if (isEmailFilled && isMessageFilled) {
+    const formState = {
+      email: emailInput.value,
+      message: messageInput.value,
+    };
+    console.log(formState);
+    clearFormState();
+  } else {
+    alert('Будь ласка, заповніть обидва поля');
+  }
 });
